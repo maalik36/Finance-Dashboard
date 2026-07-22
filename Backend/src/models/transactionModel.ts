@@ -24,3 +24,19 @@ export const createTransaction = async (
   );
   return result.rows[0];
 };
+export const getMonthlySummary = async (userId: number) => {
+  const result = await pool.query(
+    `
+    SELECT
+      TO_CHAR(date, 'YYYY-MM') AS month,
+      SUM(CASE WHEN type = 'income' THEN amount ELSE 0 END) AS income,
+      SUM(CASE WHEN type = 'expense' THEN amount ELSE 0 END) AS expenses
+    FROM transactions
+    WHERE user_id = $1
+    GROUP BY month
+    ORDER BY month;
+    `,
+    [userId]
+  );
+  return result.rows;
+};

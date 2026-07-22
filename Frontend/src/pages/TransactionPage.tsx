@@ -27,6 +27,9 @@ const TransactionsPage = () => {
       <h2>Transactions</h2>
       <TransactionForm onCreated={load} />
       <ul>
+        <button onClick={() => client.delete(`/transactions/${t.id}`).then(load)}>
+        Delete
+        </button>
         {transactions.map((t) => (
           <li key={t.id}>
             {t.date} — {t.category} — {t.type} — ${t.amount} ({t.description})

@@ -7,7 +7,7 @@ const TransactionForm = ({ onCreated }: { onCreated: () => void }) => {
   const [type, setType] = useState<"income" | "expense">("expense");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
-
+  const categories = ["Food", "Rent", "Utilities", "Entertainment", "Travel"];
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await client.post("/transactions", {
@@ -24,7 +24,12 @@ const TransactionForm = ({ onCreated }: { onCreated: () => void }) => {
     <form onSubmit={handleSubmit} style={{ marginBottom: "1rem" }}>
       <input
         type="number"
-        placeholder="Amount"
+        placeholder=<select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <option value="">Select category</option>
+        {categories.map((c) => (
+          <option key={c} value={c}>{c}</option>
+        ))}
+      </select>
         value={amount}
         onChange={(e) => setAmount(Number(e.target.value))}
       />

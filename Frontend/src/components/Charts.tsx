@@ -35,7 +35,15 @@ const Charts = ({ transactions }: { transactions: Transaction[] }) => {
   ];
 
   const colors = ["#52c41a", "#ff4d4f"];
-
+  <ResponsiveContainer width="100%" height={300}>
+  <LineChart data={monthlySummary}>
+    <XAxis dataKey="month" />
+    <YAxis />
+    <Tooltip />
+    <Line type="monotone" dataKey="income" stroke="#52c41a" />
+    <Line type="monotone" dataKey="expenses" stroke="#ff4d4f" />
+  </LineChart>
+</ResponsiveContainer>
   return (
     <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
       <div style={{ width: 400, height: 300 }}>
