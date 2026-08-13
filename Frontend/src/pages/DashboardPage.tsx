@@ -22,6 +22,20 @@ useEffect(() => {
   client.get("/transactions/monthly-summary")
     .then((res) => setMonthlySummary(res.data));
 }, []);
+const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+  client.get("/transactions/monthly-summary")
+    .then((res) => setMonthlySummary(res.data))
+    .finally(() => setLoading(false));
+}, []);
+
+if (loading) return <p>Loading dashboard...</p>;
+const [error, setError] = useState("");
+
+client.get("/transactions")
+  .then((res) => setTransactions(res.data))
+  .catch(() => setError("Failed to load transactions"));
   return (
     <div>
       <h2>Dashboard</h2>

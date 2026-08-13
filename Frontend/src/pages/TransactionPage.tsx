@@ -21,7 +21,9 @@ const TransactionsPage = () => {
   useEffect(() => {
     load();
   }, []);
-
+{transactions.length === 0 && (
+  <p className="text-gray-500">No transactions yet. Add one above.</p>
+)}
   return (
     <div>
       <h2>Transactions</h2>
@@ -29,6 +31,12 @@ const TransactionsPage = () => {
       <ul>
         <button onClick={() => client.delete(`/transactions/${t.id}`).then(load)}>
         Delete
+        </button>
+        <button
+          className="text-blue-600"
+          onClick={() => setEditing(t)}
+          >
+          Edit
         </button>
         {transactions.map((t) => (
           <li key={t.id}>
