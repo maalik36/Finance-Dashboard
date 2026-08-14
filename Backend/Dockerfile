@@ -6,6 +6,8 @@ COPY package*.json ./
 
 RUN npm install
 
+RUN npm install --save-dev @types/pg
+
 COPY . .
 
 RUN npm run build
