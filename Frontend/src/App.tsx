@@ -1,8 +1,8 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
-import TransactionsPage from "./pages/TransactionsPage";
-import BudgetsPage from "./pages/BudgetsPage";
+import TransactionsPage from "./pages/TransactionPage";
+import BudgetsPage from "./pages/BudgetPage";
 import Layout from "./components/Layout";
 
 const isAuthenticated = () => !!localStorage.getItem("token");
