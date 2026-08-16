@@ -30,13 +30,14 @@ useEffect(() => {
     .finally(() => setLoading(false));
 }, []);
 
-if (loading) return <p>Loading dashboard...</p>;
+if (loading) return (<p>Loading dashboard...</p>);
 const [error, setError] = useState("");
 
 client.get("/transactions")
   .then((res) => setTransactions(res.data))
   .catch(() => setError("Failed to load transactions"));
   return (
+    <>
     <div>
       <h2>Dashboard</h2>
       <Charts transactions={transactions} />
@@ -52,6 +53,7 @@ client.get("/transactions")
         <Charts ... />
       </div>
     </div>
+  </>  
   );
 };
 

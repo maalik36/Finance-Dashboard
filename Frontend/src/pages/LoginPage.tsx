@@ -20,6 +20,7 @@ const LoginPage = () => {
   };
 
   return (
+    <>
     <div style={{ maxWidth: 400, margin: "2rem auto" }}>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
@@ -43,6 +44,7 @@ const LoginPage = () => {
         <button type="submit">Login</button>
       </form>
     </div>
+    </>
   );
 };
 
