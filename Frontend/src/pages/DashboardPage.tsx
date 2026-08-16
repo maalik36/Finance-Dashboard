@@ -45,12 +45,12 @@ client.get("/transactions")
     <div className="dashboard-container">
       <div className="chart-card">
         <h3>Income vs Expenses</h3>
-        <Charts ... />
+        <Charts/>
       </div>
 
       <div className="chart-card">
         <h3>Monthly Trend</h3>
-        <Charts ... />
+        <Charts/>
       </div>
     </div>
   </>  
