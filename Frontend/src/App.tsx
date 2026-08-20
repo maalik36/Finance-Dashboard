@@ -3,6 +3,7 @@ import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import TransactionsPage from "./pages/TransactionPage";
 import BudgetsPage from "./pages/BudgetPage";
+import RegisterPage from "./pages/RegisterPage";
 import Layout from "./components/Layout";
 
 const isAuthenticated = () => !!localStorage.getItem("token");
@@ -11,6 +12,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route
         path="/"
         element={

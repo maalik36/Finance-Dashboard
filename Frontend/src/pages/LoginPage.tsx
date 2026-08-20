@@ -23,10 +23,6 @@ const LoginPage = () => {
 
   return (
     <>
-    <Routes>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
-    </Routes>
     <div style={{ maxWidth: 400, margin: "2rem auto" }}>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
