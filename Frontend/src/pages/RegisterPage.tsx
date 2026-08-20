@@ -13,8 +13,8 @@ const RegisterPage = () => {
     e.preventDefault();
     try {
       const res = await client.post("/auth/register", { name, email, password });
-      localStorage.setItem("token", res.data.token);
-      navigate("/");
+      alert("Registration successful! Please log in.");
+      navigate("/login");
     } catch {
       setError("Registration failed");
     }
